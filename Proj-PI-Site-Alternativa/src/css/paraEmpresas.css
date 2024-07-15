@@ -8,10 +8,6 @@
     text-align: center;
     color: var(--primary-color);
 }
-.divOrganizacaoCards{
-    display: flex;
-}
-
 .cardVantagens{
     width: 14%;
     font-size: 0.8em;
