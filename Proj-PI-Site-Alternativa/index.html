@@ -72,7 +72,7 @@
             <!--MENU DATA LOCACAO-->
             <form action="process-reserva.php" method="post" class="formularioReserva">
                 <div>
-                    <select class="selecaoLocal">
+                    <select class="selecaoLocal" name="selecaoLocal">
                         <option>--Retire em--</option>
                         <option>No Aeroporto</option>
                         <option>Na Rodoviária</option>
@@ -80,7 +80,7 @@
                         <option>Na Minha Residência</option>
                         <option>Outros</option>
                     </select>
-                    <select class="selecaoCarro">
+                    <select class="selecaoCarro" name="selecaoCarro">
                         <option>--Escolha o modelo--</option>
                         <option>Compactos</option>
                         <option>Hatch 1.0</option>
@@ -91,13 +91,13 @@
                 </div>
                 <label>CHECK-IN</label>
                 <div>
-                    <input type="date" class="dateTime" required>
-                    <input type="time" class="dateTime" required>
+                    <input type="date" class="dateTime" name="checkin_data" required>
+                    <input type="time" class="dateTime" name="checkin_hora" required>
                 </div>
                 <label>CHECK-OUT</label>
                 <div>
-                    <input type="date" class="dateTime" required>
-                    <input type="time" class="dateTime" required>
+                    <input type="date" class="dateTime" name="checkout_data" required>
+                    <input type="time" class="dateTime" name="checkout_hora" required>
                 </div>
 
                 <button type="submit" name="reservar">Reservar</button>
