@@ -1,6 +1,6 @@
 <?php
 // process_fale_conosco.php
-include 'connect.php';
+require 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
