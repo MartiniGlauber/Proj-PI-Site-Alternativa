@@ -26,5 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Erro ao registrar a reserva.";
     }
+    
 }
 ?>
