@@ -1,6 +1,9 @@
 <?php
 // process_fale_conosco.php
-require 'connect.php';
+require_once __DIR__ . '/connect.php';
+require_once __DIR__ . '/mensagem.php';
+
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -15,10 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':mensagem', $mensagem);
 
-    if ($stmt->execute()) {
-        echo "Mensagem enviada com sucesso!";
+    $sucesso = $stmt->execute();
+
+    if ($sucesso) {
+        adicionaMensagemFlash('sucesso', 'Sua mensagem foi enviada com sucesso!');
     } else {
-        echo "Erro ao enviar a mensagem.";
+        adicionaMensagemFlash('erro', "Desculpe, não foi possível enviar sua mensagem...");
     }
+
+    // redireciona para a página inicial
+    header('Location: /');
 }
-?>

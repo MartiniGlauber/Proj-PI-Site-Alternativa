@@ -1,6 +1,9 @@
 <?php
 // process_reserva.php
-require 'connect.php';
+require_once __DIR__  . '/connect.php';
+require_once __DIR__ . '/mensagem.php';
+
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $local_retirada = $_POST['selecaoLocal'];
@@ -21,11 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':checkout_data', $checkout_data);
     $stmt->bindParam(':checkout_hora', $checkout_hora);
 
-    if ($stmt->execute()) {
-        echo "Reserva registrada com sucesso!";
+    $sucesso = $stmt->execute();
+
+    if ($sucesso) {
+        adicionaMensagemFlash('sucesso', "Sua reserva foi realizada com sucesso!");
     } else {
-        echo "Erro ao registrar a reserva.";
+        adicionaMensagemFlash('erro', "Desculpe, não foi possível realizar sua reserva...");
     }
-    
+
+    // redireciona para a página inicial
+    header('Location: /');    
 }
-?>

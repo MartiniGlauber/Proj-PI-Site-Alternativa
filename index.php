@@ -1,5 +1,9 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alternativa Autolocadora</title>
     <!--CSS GERAL-->
-    <link href="src/css/style.css" rel="stylesheet">
+    <link href="./src/css/style.css" rel="stylesheet">
     <!--FAVICON-->
-    <link rel="icon" href="src/imagens/favicon-alternativa.png">
+    <link rel="icon" href="./src/imagens/favicon-alternativa.png">
     <!--GOOGLE FONTES-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +31,7 @@
     <header>
         <!--LOGO-->
         <div id="containerLogo">
-            <img src="src/imagens/logo.png" alt="Logo Alternativa Autolocadora" class="logo">
+            <img src="./src/imagens/logo.png" alt="Logo Alternativa Autolocadora" class="logo">
         </div>
         <!--MENU DE NAVEGAÇÃO (LINKS)-->
         <i class="fa-solid fa-bars" id="botaoHamburguer"></i>
@@ -48,17 +52,28 @@
 
     <main>
 
+        <div class="container">
+            <?php if (isset($_SESSION['mensagem'])): ?>
+            <div class="alert alert-<?= $_SESSION['tipo_mensagem']; ?>">
+                <?= $_SESSION['mensagem']; ?>
+            </div>
+            <?php
+                unset($_SESSION['mensagem']);
+                unset($_SESSION['tipo_mensagem']);
+            endif; ?>
+        </div>
+
         <section>
             <div>
                 <!--CARROSEL TIPOS CARROS-->
                 <section class="banner cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-speed="1000"
                     data-cycle-prev="#prev" data-cycle-next="#next">
 
-                    <img src="src/imagens/compactos.png" alt="imagem compactos" class="banner">
-                    <img src="src/imagens/hatch.png" alt="imagem hatches" class="banner">
-                    <img src="src/imagens/sedanCompacto.png" alt="imagem sedans compactos" class="banner">
-                    <img src="src/imagens/suv.png" alt="imagem suv" class="banner">
-                    <img src="src/imagens/pickup.png" alt="imagem pick ups" class="banner">
+                    <img src="./src/imagens/compactos.png" alt="imagem compactos" class="banner">
+                    <img src="./src/imagens/hatch.png" alt="imagem hatches" class="banner">
+                    <img src="./src/imagens/sedanCompacto.png" alt="imagem sedans compactos" class="banner">
+                    <img src="./src/imagens/suv.png" alt="imagem suv" class="banner">
+                    <img src="./src/imagens/pickup.png" alt="imagem pick ups" class="banner">
                 </section>
                 <div class="controles">
                     <i class="fa-solid fa-circle-arrow-left" id="prev" title="Categoria anterior"></i>
@@ -262,11 +277,11 @@
         <a href="#"><i class="fa-solid fa-circle-arrow-up" id="voltar-topo" title="Voltar ao topo"></i></a>
 
     </footer>
-    <script src="src/js/jquery-3.7.1.js"></script>
-    <script src="src/js/scrolltop.js"></script>
-    <script src="src/js/jquery.cycle2.min.js"></script>
-    <script src="src/js/jquery.cycle2.carousel.min.js"></script>
-    <script src="src/js/toggleText.js"> </script>
+    <script src="./src/js/jquery-3.7.1.js"></script>
+    <script src="./src/js/scrolltop.js"></script>
+    <script src="./src/js/jquery.cycle2.min.js"></script>
+    <script src="./src/js/jquery.cycle2.carousel.min.js"></script>
+    <script src="./src/js/toggleText.js"> </script>
     <script>
         $("#voltar-topo").click(function () {
             $("html, body").animate({ scrollTop: "0px" }, 800);

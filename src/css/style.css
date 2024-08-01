@@ -64,6 +64,24 @@ ul li{
     list-style: none;
     display: inline-block;
 }
+
+.container {
+    display:flex;
+    justify-content: center;
+}
+
+.alert-sucesso {
+    color: green;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.alert-erro {
+    color: red;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
 /*TAMANHO MAX 755PX*/
 @media (max-width:755px) {
     h1{
